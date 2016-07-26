@@ -8,9 +8,11 @@ class Video():
 
 
 
-
+# This class provides a way to store movie related information
 class Movie(Video):
-    """This class provides a way to store movie related information"""
+    """This class connects with entertainment_center.py. 
+        The Imdb class connects with the Imdb.com  
+    """
     VALID_RATINGS = ["G", "PG", "PG-13", "R"]
     
     def __init__(self,
@@ -19,8 +21,10 @@ class Movie(Video):
                  movie_storyline,
                  poster_image,
                  trailer_youtube):
-        Video.__init__(self, title, duration)
+        # Video.__init__(self,title,duration)
+        # super() isnt working and I have been googling to find out why. I am so stumped on it. Would love feed back! :)
         self.storyline = movie_storyline
+        super(Movie, self).__init__(title, duration) 
         self.poster_image_url = poster_image
         self.trailer_youtube_url = trailer_youtube
 
@@ -35,7 +39,8 @@ class TvShow(Video):
                  duration,
                  season,
                  episode, tv_station):
-        Video.__init__(self,title,duration)
+        # Video.__init__(self,title,duration)
+        super(Movie, self).__init__(title, duration)
         self.season = season
         self.episode = episode
         self.tv_station = tv_station
